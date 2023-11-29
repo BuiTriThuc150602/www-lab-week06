@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+  <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+<div class="container d-flex vh-100 justify-content-center align-items-center">
+  <section class="rounded-5 shadow">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+              class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mt-5 mb-5">
+          <form action="/login">
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" name="email" id="email" class="form-control form-control-lg"
+                     placeholder="Enter a valid email address"/>
+
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <input type="password" name="pwd" id="pwd" class="form-control form-control-lg"
+                     placeholder="Enter password"/>
+            </div>
+            <div th:if="${checkLogin} != null">
+              <div th:class="${checkLogin}?'d-none':'form-outline m-3'"><span
+                  class="text-danger fst-italic">Login Fail ! Please check your email or password</span>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- Checkbox -->
+              <div class="form-check mb-0">
+                <input class="form-check-input me-2" type="checkbox" value="" id="rememberMe"/>
+                <label class="form-check-label" for="rememberMe">
+                  Remember me
+                </label>
+              </div>
+              <a href="#" class="text-body">Forgot password?</a>
+            </div>
+
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" class="btn btn-primary btn-lg">Login
+              </button>
+              <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/register"
+                                                                                class="link-success">Register</a>
+              </p>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+        class="d-flex justify-content-center p-3 bg-primary rounded-4 shadow">
+      <p class="text-white text-center ">Copyright © 2023. All rights reserved.</p>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
