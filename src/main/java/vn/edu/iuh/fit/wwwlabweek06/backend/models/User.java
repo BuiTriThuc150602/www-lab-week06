@@ -14,16 +14,19 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "user")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
+@Getter
+@Setter
 public class User {
 
   @Id
@@ -33,20 +36,19 @@ public class User {
   @NonNull
   private String firstName;
   @Column(name = "middle_name", length = 50, nullable = false)
-@NonNull
+  @NonNull
   private String middleName;
   @Column(name = "last_name", length = 50, nullable = false)
-@NonNull
+  @NonNull
   private String lastName;
-  @Column(name = "email", length = 50)
-@NonNull
+  @Column(name = "email", length = 50, unique = true)
+  @NonNull
   private String email;
   @Column(name = "mobile", length = 50)
-@NonNull
+  @NonNull
   private String mobile;
   @Lob
   @Column(name = "intro", length = 50)
-
   private String intro;
   @Lob
   @Column(name = "profile", length = 50)

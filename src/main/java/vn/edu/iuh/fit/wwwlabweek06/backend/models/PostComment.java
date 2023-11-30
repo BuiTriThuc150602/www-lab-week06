@@ -15,39 +15,50 @@ import java.time.Instant;
 import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "post_comment")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 public class PostComment {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
   @Column(name = "title", length = 100)
+  @NonNull
   private String title;
   @Column(name = "published")
+  @NonNull
   private Boolean published;
   @Column(name = "published_at", length = 6)
+  @NonNull
   private Instant publishedAt;
   @Column(name = "create_at", length = 6)
+  @NonNull
 
   private Instant createAt;
   @Lob
   @Column(name = "content")
+  @NonNull
   private String content;
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @NonNull
   @JoinColumn(name = "user_id")
   private User user;
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @NonNull
   @JoinColumn(name = "post_id")
   private Post post;
-  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "parent_id")
   private PostComment parent;
   @OneToMany(mappedBy = "parent")
