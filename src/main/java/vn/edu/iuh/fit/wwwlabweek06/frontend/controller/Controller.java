@@ -111,5 +111,23 @@ public class Controller {
 
     return "redirect:/dashboard";
   }
+  @GetMapping("/posting")
+  public  String goToPost(){
+    return "posts/post";
+  }
+
+  @PostMapping("/createPost")
+  public String createPost(@RequestParam("title") String title, @RequestParam("metaTitle") String metaTitle, @RequestParam("content") String content,@RequestParam("publish") boolean publish,@RequestParam("summary") String summary, HttpSession session){
+    User user = (User) session.getAttribute("userLogin");
+    if (user == null) {
+      return "index";
+    }
+    Post post = new Post(title, publish,
+        content,
+        metaTitle, summary,
+        Instant.now(), Instant.now(), user);
+    postRepository.save(post);
+    return "redirect:/dashboard";
+  }
 
 }
