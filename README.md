@@ -18,6 +18,8 @@
 ![image](https://github.com/BuiTriThuc150602/www-lab-week06/assets/125670011/ef679700-c8bf-4bce-938c-4bd527dee904)
 
 ### - Khi đăng ký thành công sẽ được chuyển về trang login để đăng nhập bằng tài khoản vừa tạo.
+### - Sử dụng spring Session để lưu thông tin đăng nhập, khi chuyển qua lại các trang vẫn có thể truy cập được thông tin người đăng nhập. 
+
 ## 2. Trang Chủ:
 
 ###- Sau khi đăng nhập thành công, người dùng sẽ được chuyển đến trang chủ, hiển thị các bài đăng của tất cả người dùng :
